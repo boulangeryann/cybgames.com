@@ -33,8 +33,12 @@
     }
     .game-card:hover { border-color: #555; }
     .game-icon {
-      font-size: 3rem;
       margin-bottom: 16px;
+    }
+    .game-icon img {
+      width: 96px;
+      height: 96px;
+      border-radius: 22px;
     }
     .game-card h2 { font-size: 1.3rem; margin-bottom: 8px; }
     .game-card p { color: #888; font-size: 0.9rem; line-height: 1.5; }
@@ -56,7 +60,7 @@
 
   <div class="games">
     <a class="game-card" href="/mitaine/">
-      <div class="game-icon">🧤</div>
+      <div class="game-icon"><img src="/mitaine-icon.png" alt="Mitaine icon"></div>
       <h2>Mitaine</h2>
       <p>A traditional Quebec card game for four players. Play with and against three AI opponents.</p>
       <span class="badge">iPhone · Card Game</span>
