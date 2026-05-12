@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mitaine — Privacy Policy</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0a0a0a;
+      color: #f0f0f0;
+      padding: 60px 20px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 48px;
+    }
+    nav a { color: #888; text-decoration: none; font-size: 0.9rem; }
+    nav a:hover { color: #f0f0f0; }
+
+    .lang-toggle {
+      display: flex;
+      gap: 4px;
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 20px;
+      padding: 3px;
+    }
+    .lang-toggle button {
+      background: none;
+      border: none;
+      color: #666;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      padding: 4px 12px;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+    .lang-toggle button.active {
+      background: #f0f0f0;
+      color: #0a0a0a;
+    }
+    .lang-toggle button:not(.active):hover {
+      color: #ccc;
+    }
+
+    .content { display: none; }
+    .content.visible { display: block; }
+
+    h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; }
+    .meta { color: #888; font-size: 0.9rem; margin-bottom: 48px; }
+    h2 { font-size: 1.1rem; font-weight: 600; margin: 36px 0 12px; color: #ddd; }
+    p { color: #aaa; line-height: 1.7; margin-bottom: 12px; }
+    ul { color: #aaa; line-height: 1.7; padding-left: 20px; margin-bottom: 12px; }
+    a { color: #4a9eff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    hr { border: none; border-top: 1px solid #2a2a2a; margin: 40px 0; }
+    footer { margin-top: 80px; color: #444; font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/mitaine/">← Mitaine</a>
+    <div class="lang-toggle">
+      <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+      <button id="btn-fr" onclick="setLang('fr')">FR</button>
+    </div>
+  </nav>
+
+  <!-- English -->
+  <div id="content-en" class="content visible">
+    <h1>Privacy Policy</h1>
+    <p class="meta">Mitaine · Last updated: May 12, 2026</p>
+
+    <p>Mitaine is a card game for four players. This policy describes what data the app does and does not collect.</p>
+
+    <h2>Data We Collect</h2>
+    <p>We collect <strong>no personal data</strong> of any kind.</p>
+
+    <h2>Local Storage</h2>
+    <p>The app saves the following information <strong>on your device only</strong>, using Apple's standard UserDefaults mechanism:</p>
+    <ul>
+      <li>Game-in-progress state (so you can resume an interrupted game)</li>
+      <li>Your preferences — player names, sound, haptics, AI speed, language</li>
+      <li>Lifetime statistics — wins, losses, average score, best round, most steals in a round</li>
+      <li>Achievements unlocked</li>
+    </ul>
+    <p>This data never leaves your device. It is not transmitted to any server, shared with any third party, or linked to your identity in any way.</p>
+
+    <h2>Analytics &amp; Tracking</h2>
+    <p>The app contains no analytics SDK, no advertising SDK, no crash reporter, and no tracking of any kind.</p>
+
+    <h2>Third-Party Services</h2>
+    <p>The app does not connect to the internet and uses no third-party services.</p>
+
+    <h2>Children</h2>
+    <p>The app does not collect data from anyone, including children under 13.</p>
+
+    <h2>Changes to This Policy</h2>
+    <p>If this policy ever changes, the updated version will be posted at this URL with a revised date at the top.</p>
+
+    <hr>
+    <p>Questions? Contact us at <a href="mailto:support@cybgames.com">support@cybgames.com</a>.</p>
+    <footer>&copy; 2026 CYB Games</footer>
+  </div>
+
+  <!-- French -->
+  <div id="content-fr" class="content">
+    <h1>Politique de confidentialité</h1>
+    <p class="meta">Mitaine · Dernière mise à jour : 12 mai 2026</p>
+
+    <p>Mitaine est un jeu de cartes pour quatre joueurs. Cette politique décrit les données que l'application collecte ou ne collecte pas.</p>
+
+    <h2>Données collectées</h2>
+    <p>Nous ne collectons <strong>aucune donnée personnelle</strong> de quelque nature que ce soit.</p>
+
+    <h2>Stockage local</h2>
+    <p>L'application enregistre les informations suivantes <strong>sur votre appareil uniquement</strong>, via le mécanisme UserDefaults d'Apple :</p>
+    <ul>
+      <li>L'état de la partie en cours (pour reprendre une partie interrompue)</li>
+      <li>Vos préférences — noms des joueurs, son, haptique, vitesse de l'IA, langue</li>
+      <li>Statistiques à vie — victoires, défaites, score moyen, meilleure manche, plus de vols en une manche</li>
+      <li>Succès débloqués</li>
+    </ul>
+    <p>Ces données ne quittent jamais votre appareil. Elles ne sont transmises à aucun serveur, partagées avec aucun tiers, ni liées à votre identité de quelque façon que ce soit.</p>
+
+    <h2>Analytique et suivi</h2>
+    <p>L'application ne contient aucun SDK d'analyse, aucun SDK publicitaire, aucun outil de rapport de plantage, ni aucun suivi de quelque nature que ce soit.</p>
+
+    <h2>Services tiers</h2>
+    <p>L'application ne se connecte pas à Internet et n'utilise aucun service tiers.</p>
+
+    <h2>Enfants</h2>
+    <p>L'application ne collecte de données auprès de personne, y compris les enfants de moins de 13 ans.</p>
+
+    <h2>Modifications de cette politique</h2>
+    <p>Si cette politique venait à changer, la version mise à jour sera publiée à cette URL avec une date révisée en haut de page.</p>
+
+    <hr>
+    <p>Des questions ? Écrivez-nous à <a href="mailto:support@cybgames.com">support@cybgames.com</a>.</p>
+    <footer>&copy; 2026 CYB Games</footer>
+  </div>
+
+  <script>
+    function setLang(lang) {
+      document.getElementById('content-en').classList.toggle('visible', lang === 'en');
+      document.getElementById('content-fr').classList.toggle('visible', lang === 'fr');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+      document.documentElement.lang = lang;
+      localStorage.setItem('lang', lang);
+    }
+
+    const saved = localStorage.getItem('lang');
+    const browser = navigator.language.startsWith('fr') ? 'fr' : 'en';
+    setLang(saved || browser);
+  </script>
+</body>
+</html>
