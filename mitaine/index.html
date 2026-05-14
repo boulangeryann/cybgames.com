@@ -14,9 +14,46 @@
       max-width: 680px;
       margin: 0 auto;
     }
-    nav { margin-bottom: 48px; }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 48px;
+    }
     nav a { color: #888; text-decoration: none; font-size: 0.9rem; }
     nav a:hover { color: #f0f0f0; }
+
+    .lang-toggle {
+      display: flex;
+      gap: 4px;
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 20px;
+      padding: 3px;
+    }
+    .lang-toggle button {
+      background: none;
+      border: none;
+      color: #666;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      padding: 4px 12px;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+    .lang-toggle button.active {
+      background: #f0f0f0;
+      color: #0a0a0a;
+    }
+    .lang-toggle button:not(.active):hover {
+      color: #ccc;
+    }
+
+    .content { display: none; }
+    .content.visible { display: block; }
+
     h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; }
     .subtitle { color: #888; margin-bottom: 48px; }
     h2 { font-size: 1.1rem; font-weight: 600; margin: 36px 0 12px; color: #ddd; }
@@ -35,33 +72,87 @@
   </style>
 </head>
 <body>
-  <nav><a href="/">← CYB Games</a></nav>
+  <nav>
+    <a href="/">← CYB Games</a>
+    <div class="lang-toggle">
+      <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+      <button id="btn-fr" onclick="setLang('fr')">FR</button>
+    </div>
+  </nav>
 
-  <h1>Mitaine</h1>
-  <p class="subtitle">Support &amp; Help</p>
+  <!-- English -->
+  <div id="content-en" class="content visible">
+    <h1>Mitaine</h1>
+    <p class="subtitle">Support &amp; Help</p>
 
-  <h2>Getting Started</h2>
-  <p>New to Mitaine? Tap <strong>How to Play</strong> on the main menu to launch the interactive tutorial. It walks you through every situation — from playing your first card to calling a Sock of Jacks.</p>
+    <h2>Getting Started</h2>
+    <p>New to Mitaine? Tap <strong>How to Play</strong> on the main menu to launch the interactive tutorial. It walks you through every situation — from playing your first card to calling a Sock of Jacks.</p>
 
-  <h2>Rules Reference</h2>
-  <p>During a game, tap the <strong>?</strong> button in the top bar to open the in-game rules reference — a quick cheat sheet covering scoring, the call stack, Jacks, the 10♦ bonus, and partner escalation.</p>
+    <h2>Rules Reference</h2>
+    <p>During a game, tap the <strong>?</strong> button in the top bar to open the in-game rules reference — a quick cheat sheet covering scoring, the call stack, Jacks, the 10♦ bonus, and partner escalation.</p>
 
-  <h2>Frequently Asked Questions</h2>
+    <h2>Frequently Asked Questions</h2>
 
-  <h2>Why can't I play a card?</h2>
-  <p>If it's your turn and your cards are dimmed, you may be the owner of an active call and are required to keep playing cards of that group until it resolves. Cards of a different rank are blocked until your call completes.</p>
+    <h2>Why can't I play a card?</h2>
+    <p>If it's your turn and your cards are dimmed, you may be the owner of an active call and are required to keep playing cards of that group until it resolves. Cards of a different rank are blocked until your call completes.</p>
 
-  <h2>What is the 10♦ bonus?</h2>
-  <p>Whichever team clears the table while the 10 of Diamonds is in the pile earns an extra 100 points — by any method (group resolution, Jack sweep, clearing for 10, or plain table clean).</p>
+    <h2>What is the 10♦ bonus?</h2>
+    <p>Whichever team clears the table while the 10 of Diamonds is in the pile earns an extra 100 points — by any method (group resolution, Jack sweep, clearing for 10, or plain table clean).</p>
 
-  <h2>How does stealing work?</h2>
-  <p>If an opponent has an active call and you play a card of the same rank as their called group, you instantly steal and resolve the call — scoring all the points for your team.</p>
+    <h2>How does stealing work?</h2>
+    <p>If an opponent has an active call and you play a card of the same rank as their called group, you instantly steal and resolve the call — scoring all the points for your team.</p>
 
-  <h2>Contact</h2>
-  <div class="contact-box">
-    <p>For bug reports or other questions, email <a href="mailto:support@cybgames.com">support@cybgames.com</a>.</p>
+    <h2>Contact</h2>
+    <div class="contact-box">
+      <p>For bug reports or other questions, email <a href="mailto:support@cybgames.com">support@cybgames.com</a>.</p>
+    </div>
+
+    <footer>&copy; 2026 CYB Games &nbsp;·&nbsp; <a href="/mitaine/privacy/" style="color:#444;">Privacy Policy</a></footer>
   </div>
 
-  <footer>&copy; 2026 CYB Games &nbsp;·&nbsp; <a href="/mitaine/privacy/" style="color:#444;">Privacy Policy</a></footer>
+  <!-- French -->
+  <div id="content-fr" class="content">
+    <h1>Mitaine</h1>
+    <p class="subtitle">Aide &amp; Support</p>
+
+    <h2>Premiers pas</h2>
+    <p>Nouveau sur Mitaine ? Appuyez sur <strong>Comment jouer</strong> dans le menu principal pour lancer le tutoriel interactif. Il vous guide à travers chaque situation — de votre première carte jusqu'à l'appel d'une Chaussette de Valets.</p>
+
+    <h2>Référence des règles</h2>
+    <p>En cours de partie, appuyez sur le bouton <strong>?</strong> dans la barre du haut pour ouvrir le résumé des règles — un aide-mémoire couvrant le pointage, la pile d'appels, les Valets, le bonus du 10♦ et l'escalade en partenariat.</p>
+
+    <h2>Foire aux questions</h2>
+
+    <h2>Pourquoi est-ce que je ne peux pas jouer une carte ?</h2>
+    <p>Si c'est votre tour et que vos cartes sont grisées, vous êtes peut-être propriétaire d'un appel actif et devez continuer à jouer des cartes de ce groupe jusqu'à sa résolution. Les cartes d'une autre valeur sont bloquées jusqu'à ce que votre appel soit complété.</p>
+
+    <h2>C'est quoi le bonus du 10♦ ?</h2>
+    <p>L'équipe qui vide la table alors que le 10 de carreau est dans la pile gagne 100 points supplémentaires — quelle que soit la méthode (résolution de groupe, balayage par un Valet, vider pour le 10, ou table propre ordinaire).</p>
+
+    <h2>Comment fonctionne le vol ?</h2>
+    <p>Si un adversaire a un appel actif et que vous jouez une carte de la même valeur que son groupe appelé, vous volez et résolvez l'appel instantanément — tous les points vont à votre équipe.</p>
+
+    <h2>Contact</h2>
+    <div class="contact-box">
+      <p>Pour signaler un bogue ou pour toute autre question, écrivez-nous à <a href="mailto:support@cybgames.com">support@cybgames.com</a>.</p>
+    </div>
+
+    <footer>&copy; 2026 CYB Games &nbsp;·&nbsp; <a href="/mitaine/privacy/" style="color:#444;">Politique de confidentialité</a></footer>
+  </div>
+
+  <script>
+    function setLang(lang) {
+      document.getElementById('content-en').classList.toggle('visible', lang === 'en');
+      document.getElementById('content-fr').classList.toggle('visible', lang === 'fr');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+      document.documentElement.lang = lang;
+      localStorage.setItem('lang', lang);
+    }
+
+    const saved = localStorage.getItem('lang');
+    const browser = navigator.language.startsWith('fr') ? 'fr' : 'en';
+    setLang(saved || browser);
+  </script>
 </body>
 </html>
