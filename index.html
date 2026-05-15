@@ -13,10 +13,48 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+    }
+    nav {
+      display: flex;
+      justify-content: flex-end;
+      padding: 20px 24px;
+    }
+    .lang-toggle {
+      display: flex;
+      gap: 4px;
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 20px;
+      padding: 3px;
+    }
+    .lang-toggle button {
+      background: none;
+      border: none;
+      color: #666;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      padding: 4px 12px;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+    .lang-toggle button.active {
+      background: #f0f0f0;
+      color: #0a0a0a;
+    }
+    .lang-toggle button:not(.active):hover { color: #ccc; }
+
+    .content {
+      display: none;
+      flex: 1;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       padding: 40px 20px;
     }
+    .content.visible { display: flex; }
+
     h1 { font-size: 2.5rem; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 8px; }
     .subtitle { color: #888; font-size: 1rem; margin-bottom: 60px; }
     .games { display: flex; gap: 32px; flex-wrap: wrap; justify-content: center; }
@@ -32,14 +70,8 @@
       transition: border-color 0.2s;
     }
     .game-card:hover { border-color: #555; }
-    .game-icon {
-      margin-bottom: 16px;
-    }
-    .game-icon img {
-      width: 96px;
-      height: 96px;
-      border-radius: 22px;
-    }
+    .game-icon { margin-bottom: 16px; }
+    .game-icon img { width: 96px; height: 96px; border-radius: 22px; }
     .game-card h2 { font-size: 1.3rem; margin-bottom: 8px; }
     .game-card p { color: #888; font-size: 0.9rem; line-height: 1.5; }
     .badge {
@@ -55,18 +87,56 @@
   </style>
 </head>
 <body>
-  <h1>CYB Games</h1>
-  <p class="subtitle">Independent game studio</p>
+  <nav>
+    <div class="lang-toggle">
+      <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+      <button id="btn-fr" onclick="setLang('fr')">FR</button>
+    </div>
+  </nav>
 
-  <div class="games">
-    <a class="game-card" href="/mitaine/">
-      <div class="game-icon"><img src="/mitaine-icon.png" alt="Mitaine icon"></div>
-      <h2>Mitaine</h2>
-      <p>A traditional Quebec card game for four players. Play with and against three AI opponents.</p>
-      <span class="badge">iPhone · Card Game</span>
-    </a>
+  <!-- English -->
+  <div id="content-en" class="content visible">
+    <h1>CYB Games</h1>
+    <p class="subtitle">Independent game studio</p>
+    <div class="games">
+      <a class="game-card" href="/mitaine/">
+        <div class="game-icon"><img src="/mitaine-icon.png" alt="Mitaine icon"></div>
+        <h2>Mitaine</h2>
+        <p>A traditional Quebec card game for four players. Play with and against three AI opponents.</p>
+        <span class="badge">iPhone · Card Game</span>
+      </a>
+    </div>
+    <footer>&copy; 2026 CYB Games</footer>
   </div>
 
-  <footer>&copy; 2026 CYB Games</footer>
+  <!-- French -->
+  <div id="content-fr" class="content">
+    <h1>CYB Games</h1>
+    <p class="subtitle">Studio de jeux indépendant</p>
+    <div class="games">
+      <a class="game-card" href="/mitaine/">
+        <div class="game-icon"><img src="/mitaine-icon.png" alt="Icône Mitaine"></div>
+        <h2>Mitaine</h2>
+        <p>Un jeu de cartes traditionnel québécois pour quatre joueurs. Jouez avec et contre trois adversaires contrôlés par l'IA.</p>
+        <span class="badge">iPhone · Jeu de cartes</span>
+      </a>
+    </div>
+    <footer>&copy; 2026 CYB Games</footer>
+  </div>
+
+  <script>
+    function setLang(lang) {
+      document.getElementById('content-en').classList.toggle('visible', lang === 'en');
+      document.getElementById('content-fr').classList.toggle('visible', lang === 'fr');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+      document.documentElement.lang = lang;
+      localStorage.setItem('lang', lang);
+    }
+
+    const saved = localStorage.getItem('lang');
+    const browser = navigator.language.startsWith('fr') ? 'fr' : 'en';
+    setLang(saved || browser);
+  </script>
 </body>
 </html>
